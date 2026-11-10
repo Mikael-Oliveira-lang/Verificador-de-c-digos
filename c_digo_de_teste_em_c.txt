@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+    // Código C de teste para verificar a leitura do arquivo
+    printf("Olá, mundo! O leitor de arquivos funcionou perfeitamente.\n");
+
+    int a = 5;
+    int b = 10;
+    printf("A soma de %d + %d e igual a %d\n", a, b, a + b);
+
+    return 0;
+}
