@@ -75,8 +75,6 @@ void contar_conchetes(char *nome_arquivo){
     fclose(arquivo);
 }
 
-
-
 int menu(){
     int opc;
     system("clear");
