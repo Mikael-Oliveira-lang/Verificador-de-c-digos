@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 char buffer[256];
-char nome_arquivo[30];
+char nome_arquivo[50];
 
 FILE* abrir_arquivo(char *nome_arquivo){
     FILE *arquivo = fopen(nome_arquivo, "r");
@@ -99,16 +99,25 @@ int main() {
             return 0;
             break;
             case 1:
+                printf("Escreva o nome do arquivo a ser verificado: ");
+                scanf("%49s", nome_arquivo);
             contar_parenteses(nome_arquivo);
             break;
+            
             case 2:
+                printf("Escreva o nome do arquivo a ser verificado: ");
+                scanf("%49s", nome_arquivo);
             contar_conchetes(nome_arquivo);
             break;
+            
             case 3:
+                printf("Escreva o nome do arquivo a ser verificado: ");
+                scanf("%49s", nome_arquivo);
             contar_chaves(nome_arquivo);
             break;
+            
             default:
-            printf("Opção inválida.\n");
+                printf("Opção inválida.\n");
         }
         getchar();
         getchar();
