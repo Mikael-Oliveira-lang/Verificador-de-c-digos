@@ -30,13 +30,12 @@ void contar_parenteses(char *nome_arquivo){
             contador--;
         }
     }
-    if(contador == 0){
-            printf("Sintaxe de parenteses correta.\n");
-        }else
+    if(contador != 0){
             printf("Sintaxe de parenteses incorreta.\n Quantidade de parenteses incorretos: %i", contador);
-        fclose (arquivo);
+    }else
+        printf("Sintaxe de parenteses correta.\n");
+    fclose(arquivo);
 }
-
 void contar_chaves(char *nome_arquivo){
     FILE *arquivo = abrir_arquivo(nome_arquivo);
     if(arquivo == NULL){
@@ -51,13 +50,12 @@ void contar_chaves(char *nome_arquivo){
             contador--;
         }
     }
-    if(contador == 0){
-        printf("Sintaxe de chaves correta.\n");
-    }else
+    if(contador != 0){
         printf("Sintaxe de chaves incorreta.\n Numero de chaves incorretas %i", contador);
-        fclose(arquivo);
+    }else
+        printf("Sintaxe de chaves correta.\n");
+    fclose(arquivo);
 }
-
 void contar_conchetes(char *nome_arquivo){
     FILE *arquivo = abrir_arquivo(nome_arquivo);
     if(arquivo == NULL){
@@ -70,12 +68,14 @@ void contar_conchetes(char *nome_arquivo){
     }else if(buffer[i] == ']'){
         contador--;
     }
-    if(contador == 0){
-        printf("Sintaxe de conchetes correta.\n");
+    if(contador != 0){
+        printf("Sintaxe de conchetes incorreta.\n Numero de conchetes incorretos: %i", contador);
     }else
-    printf("Sintaxe de conchetes incorreta.\n Numero de conchetes incorretos: %i", contador);
+    printf("Sintaxe de conchetes correta.\n");
     fclose(arquivo);
 }
+
+
 
 int menu(){
     int opc;
@@ -92,12 +92,12 @@ int menu(){
 
 int main() {
     
-    int opc, vlr;
+    int opc;
     while(opc = menu()){
         switch(opc){
             case 0:
             return 0;
-            break;
+            
             case 1:
                 printf("Escreva o nome do arquivo a ser verificado: ");
                 scanf("%49s", nome_arquivo);
