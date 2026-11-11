@@ -30,8 +30,8 @@ void inserir_soldado(soldado **inicio){
     novo = novo->id;
 
     if(*inicio == NULL){
-        inicio = novo;
-        novo->prox = inicio;
+        *inicio = novo;
+        novo->prox = *inicio;
     } else {
 
     }
