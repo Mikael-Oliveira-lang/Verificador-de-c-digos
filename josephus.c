@@ -10,7 +10,6 @@ typedef struct No{
 
 void mostrar_soldado(soldado *inicio) {
     soldado *aux;
-
     if(inicio == NULL){
         printf("A lista está vazia.\n");
         return;
@@ -19,7 +18,21 @@ void mostrar_soldado(soldado *inicio) {
     do {
         printf("Soldado: %d\n", aux->id);
         aux = aux->prox;
+    } while(aux != inicio);
+}
 
-        for(soldado *aux = inicio->prox; aux != inicio; aux = aux->prox);
+void inserir_soldado(soldado **inicio){
+    soldado *novo = (soldado*) malloc(sizeof(soldado));
+    if(inicio == NULL){
+        printf("Falha ao inserir o soldado.\n");
+        return;
+    }
+    novo = novo->id;
+
+    if(*inicio == NULL){
+        inicio = novo;
+        novo->prox = inicio;
+    } else {
+
     }
 }
