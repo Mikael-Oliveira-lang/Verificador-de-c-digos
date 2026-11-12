@@ -8,31 +8,37 @@ typedef struct No{
     struct No *prox;
 }soldado;
 
-void mostrar_soldado(soldado *inicio) {
+void mostrar_soldado(soldado *ini) {
     soldado *aux;
-    if(inicio == NULL){
+    if(ini == NULL){
         printf("A lista está vazia.\n");
         return;
     }
-    aux = inicio;
+    aux = ini;
     do {
         printf("Soldado: %d\n", aux->id);
         aux = aux->prox;
-    } while(aux != inicio);
+    } while(aux != ini);
 }
-
-void inserir_soldado(soldado **inicio){
-    soldado *novo = (soldado*) malloc(sizeof(soldado));
-    if(inicio == NULL){
-        printf("Falha ao inserir o soldado.\n");
+void inserir_soldado(soldado **ini){
+        soldado *novo = (soldado*) malloc(sizeof(soldado));
+        soldado *aux;
+    if(novo == NULL){
         return;
     }
-    novo = novo->id;
+    scanf("%d", &novo->id);
 
-    if(*inicio == NULL){
-        *inicio = novo;
-        novo->prox = *inicio;
-    } else {
-
+    if(*ini == NULL){
+        *ini = novo;
+        novo->prox = *ini;
+    }else {
+    aux = *ini;
+        
+        while(aux->prox != *ini){
+        aux = aux->prox;
+        }
     }
+    aux->prox = novo;
+    novo->prox = *ini;
+    
 }
